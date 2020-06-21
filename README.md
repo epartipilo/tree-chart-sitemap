@@ -3,6 +3,7 @@ This is a tree chart representing the big screen of the migration between framew
 ### How to generate the chart
 1. Use [this](https://gist.github.com/epartipilo/eb112349ded169b309b55182b968004b) snippet to get the JSON file of your Angular ui-state from the browser developer console while running the application
 1. Modify the already existing JSON structure on the _index.html_ file. Note that actually we have three nodes (Angular, Vue, Progress)  
+1. Just open the _index.html_ on any browser
 
 ### Nice to have
 
