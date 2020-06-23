@@ -1,259 +1,650 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>DocPlanner - SaaS - Sitemap</title>
     <script src="https://d3js.org/d3.v5.min.js"></script>
 </head>
-<body>
-<script>
-    // D3 Tidy Tree
-    let data = new Object({
-        "children": [{
-            "name": "Angular",
 
+<body>
+    <script>
+        // D3 Tidy Tree
+        let data = new Object({
             "children": [
                 {
-                    "name": "migration", "url": "/migration", "children": []
+                    "name": "",
+                    "url": "^",
+                    "children": []
+                },
+                {
+                    "name": "vueapp",
+                    "children": []
+                },
+                {
+                    "name": "migration",
+                    "url": "/migration",
+                    "children": []
                 },
                 {
                     "name": "complete-migration",
                     "url": "/completemigration",
                     "children": []
-                }, {
+                },
+                {
+                    "name": "unauthorized",
+                    "url": "/unauthorized",
+                    "children": []
+                },
+                {
                     "name": "rooms",
                     "url": "/rooms",
-                    "children": [{"name": "list", "url": "", "children": []}, {
-                        "name": "new",
-                        "url": "/new",
-                        "children": []
-                    }, {"name": "detail", "url": "/{id:int}", "children": []}]
-                }, {
+                    "children": [
+                        {
+                            "name": "list",
+                            "url": "",
+                            "children": []
+                        },
+                        {
+                            "name": "new",
+                            "url": "/new",
+                            "children": []
+                        },
+                        {
+                            "name": "detail",
+                            "url": "/{id:int}",
+                            "children": []
+                        }
+                    ]
+                },
+                {
                     "name": "invoices",
                     "url": "",
-                    "children": [{
-                        "name": "newByEvent",
-                        "url": "/events/{eventId:int}/invoices",
-                        "children": []
-                    }, {
-                        "name": "newByHealthRecord",
-                        "url": "/healthrecords/{healthRecordId:int}/invoices",
-                        "children": []
-                    }, {"name": "edit", "url": "/invoices/{invoiceId:int}/edit", "children": []}, {
-                        "name": "corrective",
-                        "url": "/invoices/{invoiceId:int}/corrective",
-                        "children": []
-                    }, {"name": "view", "url": "/invoices/{invoiceId:int}", "children": []}, {
-                        "name": "invoicesSection",
-                        "url": "/invoices",
-                        "children": []
-                    }, {
-                        "name": "invoicesReceiveInstructions",
-                        "url": "/invoices/receive-tutorial",
-                        "children": []
-                    }, {
-                        "name": "incoming-view",
-                        "url": "/invoices/incoming/{invoiceId}/{fiscalCode}/{vatNumber}",
-                        "children": []
-                    }]
-                }, {
+                    "children": []
+                },
+                {
                     "name": "services",
                     "url": "/services",
-                    "children": [{"name": "list", "url": "", "children": []}, {
-                        "name": "new",
-                        "url": "/new",
-                        "children": []
-                    }, {"name": "detail", "url": "/{id:int}", "children": []}]
-                }, {
+                    "children": [
+                        {
+                            "name": "list",
+                            "url": "",
+                            "children": []
+                        },
+                        {
+                            "name": "new",
+                            "url": "/new",
+                            "children": []
+                        },
+                        {
+                            "name": "detail",
+                            "url": "/{id:int}",
+                            "children": []
+                        }
+                    ]
+                },
+                {
                     "name": "calendar",
                     "url": "/?appcue",
-                    "children": [{
-                        "name": "doctor",
-                        "url": "calendar",
-                        "children": [{"name": "day", "url": "/day", "children": []}, {
-                            "name": "week",
-                            "url": "/week",
-                            "children": []
-                        }, {"name": "slots", "url": "/slots", "children": []}, {
-                            "name": "agenda",
-                            "url": "/agenda",
-                            "children": []
-                        }]
-                    }, {
-                        "name": "center",
-                        "url": "calendar-clinic",
-                        "children": [{"name": "day", "url": "/day", "children": []}, {
-                            "name": "week",
-                            "url": "/week",
-                            "children": []
-                        }, {"name": "slots", "url": "/slots", "children": []}, {
-                            "name": "agenda",
-                            "url": "/agenda",
-                            "children": []
-                        }]
-                    }]
-                }, {
+                    "children": [
+                        {
+                            "name": "doctor",
+                            "url": "calendar",
+                            "children": [
+                                {
+                                    "name": "day",
+                                    "url": "/day",
+                                    "children": []
+                                },
+                                {
+                                    "name": "week",
+                                    "url": "/week",
+                                    "children": []
+                                },
+                                {
+                                    "name": "slots",
+                                    "url": "/slots",
+                                    "children": []
+                                },
+                                {
+                                    "name": "agenda",
+                                    "url": "/agenda",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "name": "center",
+                            "url": "calendar-clinic",
+                            "children": [
+                                {
+                                    "name": "day",
+                                    "url": "/day",
+                                    "children": []
+                                },
+                                {
+                                    "name": "week",
+                                    "url": "/week",
+                                    "children": []
+                                },
+                                {
+                                    "name": "slots",
+                                    "url": "/slots",
+                                    "children": []
+                                },
+                                {
+                                    "name": "agenda",
+                                    "url": "/agenda",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
                     "name": "day",
                     "url": "/day/{day}",
-                    "children": [{"name": "center", "children": []}, {"name": "doctor", "children": []}]
-                }, {
+                    "children": [
+                        {
+                            "name": "center",
+                            "children": []
+                        },
+                        {
+                            "name": "doctor",
+                            "children": []
+                        }
+                    ]
+                },
+                {
                     "name": "eventId",
                     "url": "/day/{day}/event/{eventId}",
-                    "children": [{"name": "center", "children": []}, {"name": "doctor", "children": []}]
-                }, {"name": "settings", "url": "/settings", "children": []}, {
+                    "children": [
+                        {
+                            "name": "center",
+                            "children": []
+                        },
+                        {
+                            "name": "doctor",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "settings",
+                    "url": "/settings",
+                    "children": []
+                },
+                {
+                    "name": "settings-notifications",
+                    "url": "/settings-notifications",
+                    "children": []
+                },
+                {
                     "name": "holidays",
                     "url": "/holidays",
-                    "children": [{"name": "list", "url": "/list", "children": []}]
-                }, {
+                    "children": [
+                        {
+                            "name": "list",
+                            "url": "/list",
+                            "children": []
+                        }
+                    ]
+                },
+                {
                     "name": "patients",
                     "url": "/patients",
-                    "children": [{"name": "list", "url": "/list", "children": []}, {
-                        "name": "detail",
-                        "url": "/{id:int}",
-                        "children": []
-                    }, {
-                        "name": "tab",
-                        "url": "/{id:int}/{tab:(?:record|messages|medicalinfo|files|logs)}",
-                        "children": []
-                    }, {
-                        "name": "message",
-                        "url": "/{patientId:int}/messages/{messageId:int}",
-                        "children": []
-                    }, {"name": "import", "url": "/import", "children": []}]
-                }, {
+                    "children": [
+                        {
+                            "name": "list",
+                            "url": "/list",
+                            "children": []
+                        },
+                        {
+                            "name": "detail",
+                            "url": "/{id:int}",
+                            "children": []
+                        },
+                        {
+                            "name": "tab",
+                            "url": "/{id:int}/{tab:(?:record|messages|medicalinfo|files|logs)}",
+                            "children": []
+                        },
+                        {
+                            "name": "import",
+                            "url": "/import",
+                            "children": []
+                        }
+                    ]
+                },
+                {
                     "name": "schedules",
                     "url": "/schedules",
-                    "children": [{"name": "list", "url": "", "children": []}, {
-                        "name": "detail",
-                        "url": "/{id:int}",
-                        "children": []
-                    }, {
-                        "name": "tab",
-                        "url": "/{id:int}/{tab:(?:servicesData|workTimePeriods|notificationsSettings|facilityInformation|scheduleSettings)}",
-                        "children": []
-                    }]
+                    "children": [
+                        {
+                            "name": "list",
+                            "url": "",
+                            "children": []
+                        },
+                        {
+                            "name": "detail",
+                            "url": "/{id:int}",
+                            "children": []
+                        },
+                        {
+                            "name": "tab",
+                            "url": "/{id:int}/{tab:(?:servicesData|workTimePeriods|notificationsSettings|facilityInformation|scheduleSettings|onlineBooking|dailyReport|videoConsultations)}",
+                            "children": []
+                        }
+                    ]
                 },
                 {
                     "name": "campaigns",
                     "url": "/campaigns",
-                    "children": [{
-                        "name": "typeselector",
-                        "url": "/campaigns-select-type",
-                        "children": []
-                    }, {"name": "recipients", "url": "/campaigns-recipients", "children": []}, {
-                        "name": "send-sms",
-                        "url": "/campaigns-send-sms",
-                        "children": []
-                    }, {"name": "send-email", "url": "/campaigns-send-email", "children": []}]
-                }, {"name": "onboarding", "url": "/onboarding?originPage", "children": []}, {
+                    "children": [
+                        {
+                            "name": "typeselector",
+                            "url": "/campaigns-select-type",
+                            "children": []
+                        },
+                        {
+                            "name": "recipients",
+                            "url": "/campaigns-recipients",
+                            "children": []
+                        },
+                        {
+                            "name": "send-sms",
+                            "url": "/campaigns-send-sms",
+                            "children": []
+                        },
+                        {
+                            "name": "send-email",
+                            "url": "/campaigns-send-email",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "onboarding",
+                    "url": "/onboarding?originPage",
+                    "children": []
+                },
+                {
                     "name": "unknown",
                     "url": "/*path",
                     "children": []
-                }]
+                }
+            ]
+        })
 
-        }]
-    })
+        data.children.push({
+            name: 'Vue',
+            "children": [
+                {
+                    "url": "/error",
+                    "name": "error"
+                },
+                {
+                    "url": "/",
+                    "name": "/",
+                    "children": [
+                        {
+                            "url": "patient-video-consultation",
+                            "name": "patient-video-consultation"
+                        },
+                        {
+                            "url": "terms-and-conditions-video",
+                            "name": "terms-and-conditions-video"
+                        },
+                        {
+                            "url": "mobile-gdpr",
+                            "name": "mobile-gdpr"
+                        },
+                        {
+                            "url": "register",
+                            "name": "register"
+                        },
+                        {
+                            "url": "404",
+                            "name": "not-found"
+                        },
+                        {
+                            "url": "unauthorized",
+                            "name": "unauthorized"
+                        },
+                        {
+                            "url": "logout",
+                            "name": "logout"
+                        },
+                        {
+                            "url": "unknown",
+                            "name": "unknown"
+                        },
+                        {
+                            "url": "mobile",
+                            "name": "mobile"
+                        },
+                        {
+                            "url": "",
+                            "name": "private",
+                            "children": [
+                                {
+                                    "url": "migration",
+                                    "name": "migration"
+                                },
+                                {
+                                    "url": "/online-agenda-migration",
+                                    "name": "online-agenda-migration"
+                                },
+                                {
+                                    "url": "/calendar",
+                                    "name": "calendar",
+                                    "children": [
+                                        {
+                                            "url": "slots",
+                                            "name": "slots"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "url": "reports",
+                                    "name": "reports"
+                                },
+                                {
+                                    "url": "next-best-actions",
+                                    "name": "next-best-actions",
+                                    "children": [
+                                        {
+                                            "url": "",
+                                            "name": "next-best-actions-list"
+                                        },
+                                        {
+                                            "url": "info",
+                                            "name": "next-best-actions-info"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "url": "dashboard",
+                                    "name": "dashboard"
+                                },
+                                {
+                                    "url": "select-user",
+                                    "name": "select-user"
+                                },
+                                {
+                                    "url": "docplanner_app",
+                                    "name": "login-app"
+                                },
+                                {
+                                    "url": "",
+                                    "name": "",
+                                    "children": [
+                                        {
+                                            "url": "users",
+                                            "name": "users",
+                                            "children": [
+                                                {
+                                                    "url": "",
+                                                    "name": "settings-users"
+                                                },
+                                                {
+                                                    "url": ":id",
+                                                    "name": "settings-user"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "url": "services",
+                                            "name": "settings-services"
+                                        },
+                                        {
+                                            "url": "services/:id",
+                                            "name": "settings-service"
+                                        },
+                                        {
+                                            "url": "services/new",
+                                            "name": "settings-service-new"
+                                        },
+                                        {
+                                            "url": "schedules",
+                                            "name": "settings-schedules"
+                                        },
+                                        {
+                                            "url": "schedules/:id",
+                                            "name": "settings-schedule",
+                                            "children": [
+                                                {
+                                                    "url": "videoConsultations",
+                                                    "name": "settings-schedule-videoconsultation"
+                                                },
+                                                {
+                                                    "url": "workTimePeriods",
+                                                    "name": "settings-schedule-work-periods"
+                                                },
+                                                {
+                                                    "url": "servicesData",
+                                                    "name": "settings-schedule-services"
+                                                },
+                                                {
+                                                    "url": "onlineBooking",
+                                                    "name": "settings-schedule-online-booking-configuration"
+                                                },
+                                                {
+                                                    "url": "notificationsSettings",
+                                                    "name": "settings-schedule-notifications"
+                                                },
+                                                {
+                                                    "url": "dailyReport",
+                                                    "name": "settings-schedule-daily-report"
+                                                },
+                                                {
+                                                    "url": "facilityInformation",
+                                                    "name": "settings-schedule-info"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "url": "rooms",
+                                            "name": "settings-rooms"
+                                        },
+                                        {
+                                            "url": "rooms/:id",
+                                            "name": "settings-room"
+                                        },
+                                        {
+                                            "url": "rooms/new",
+                                            "name": "settings-room-new"
+                                        },
+                                        {
+                                            "url": "settings",
+                                            "name": "settings-general"
+                                        },
+                                        {
+                                            "url": "settings-notifications",
+                                            "name": "settings-notifications"
+                                        },
+                                        {
+                                            "url": "settings-exportdata",
+                                            "name": "settings-exportdata"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "url": "admin",
+                                    "name": "admin-panel"
+                                },
+                                {
+                                    "url": "s/:id",
+                                    "name": "static"
+                                },
+                                {
+                                    "url": "plugins",
+                                    "name": "plugins"
+                                },
+                                {
+                                    "url": "landing",
+                                    "name": "landing",
+                                    "children": [
+                                        {
+                                            "url": "eprescription",
+                                            "name": "landing-eprescription"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "url": "chat",
+                                    "name": "chat",
+                                    "children": [
+                                        {
+                                            "url": ":section/:folder",
+                                            "name": "chat.message-list"
+                                        },
+                                        {
+                                            "url": ":section/:folder/:id",
+                                            "name": "chat.conversation"
+                                        },
+                                        {
+                                            "url": "*",
+                                            "name": "*"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "url": "video-consultation",
+                                    "name": "video-consultation"
+                                },
+                                {
+                                    "url": "invoices",
+                                    "name": "invoices",
+                                    "children": [
+                                        {
+                                            "url": "",
+                                            "name": "invoices"
+                                        },
+                                        {
+                                            "url": "receive-tutorial",
+                                            "name": "invoice-receive-tutorial"
+                                        },
+                                        {
+                                            "url": ":id/new/:patientId?",
+                                            "name": "invoice-create"
+                                        },
+                                        {
+                                            "url": ":invoiceId/edit",
+                                            "name": "invoice-edit"
+                                        },
+                                        {
+                                            "url": ":invoiceId/corrective",
+                                            "name": "invoice-corrective"
+                                        },
+                                        {
+                                            "url": ":invoiceId/:patientId?",
+                                            "name": "invoice-details"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "url": "*",
+                                    "name": "unknown-private"
+                                }
+                            ]
+                        },
+                        {
+                            "url": "*",
+                            "name": "fallback-path"
+                        }
+                    ]
+                }
+            ]
 
-    data.children.push({
-        name: 'Vue',
-        children: [
-            { name: 'error', url: '/error' },
-            { name: 'register', url: '/register' },
-            { name: 'not-found', url: '/404' },
-            { name: 'login', url: '/login' },
-            { name: 'logout', url: '/logout' },
-            { name: 'reports', url: '/reports' },
-            { name: 'dashboard', url: '/dashboard', children: [{ name: 'dashboard-info', url: 'info' }] },
-            { name: 'select-user', url: '/select-user' },
-            { name: 'mobile', url: '/mobile' },
-            { name: 'docplanner_app', url: '/docplanner_app' }
-        ]
-    })
+        })
 
-    data.children.push({
-        name: 'Progress',
-        children: [
-            { name: 'users', url: '/users', children: [
-                {"name": "list", "url": "", "children": []},
-                {"name": "new", "url": "/new", "children": [] },
-                {"name": "detail", "url": "/{id}", "children": []}
-                ]
-            },
-            { name: 'unauthorized', url: '/unauthorized' }
-        ]
-    })
+        data.children.push({
+            name: 'Progress',
+            children: [
+                // {
+                //     name: 'users', url: '/users', children: [
+                //         { "name": "list", "url": "", "children": [] },
+                //         { "name": "new", "url": "/new", "children": [] },
+                //         { "name": "detail", "url": "/{id}", "children": [] }
+                //     ]
+                // },
+                // { name: 'unauthorized', url: '/unauthorized' }
+            ]
+        })
 
-    let width = window.innerWidth
+        let width = window.innerWidth
 
-    let tree = data => {
-        const root = d3.hierarchy(data)
-            .sort((a, b) => (a.height - b.height) || a.data.name.localeCompare(b.data.name));
-        root.dx = 10;
-        root.dy = width / (root.height + 1);
-        return d3.tree().nodeSize([root.dx, root.dy])(root);
-    }
+        let tree = data => {
+            const root = d3.hierarchy(data)
+                .sort((a, b) => (a.height - b.height) || a.data.name.localeCompare(b.data.name));
+            root.dx = 10;
+            root.dy = width / (root.height + 1);
+            return d3.tree().nodeSize([root.dx, root.dy])(root);
+        }
 
-    const root = tree(data);
+        const root = tree(data);
 
-    let x0 = Infinity;
-    let x1 = -x0;
-    root.each(d => {
-        if (d.x > x1) x1 = d.x;
-        if (d.x < x0) x0 = d.x;
-    });
+        let x0 = Infinity;
+        let x1 = -x0;
+        root.each(d => {
+            if (d.x > x1) x1 = d.x;
+            if (d.x < x0) x0 = d.x;
+        });
 
-    let bodySelection = d3.select("body");
+        let bodySelection = d3.select("body");
 
-    let svg = bodySelection.append("svg")
-        .attr("width", width)
-        .attr("height", x1 - x0 + root.dx * 2)
-        .style("width", "100%")
-        .style("height", "auto");
+        let svg = bodySelection.append("svg")
+            .attr("width", width)
+            .attr("height", x1 - x0 + root.dx * 2)
+            .style("width", "100%")
+            .style("height", "auto");
 
-    const g = svg.append("g")
-        .attr("font-family", "sans-serif")
-        .attr("font-size", 10)
-        .attr("transform", `translate(${root.dy / 3},${root.dx - x0})`);
+        const g = svg.append("g")
+            .attr("font-family", "sans-serif")
+            .attr("font-size", 10)
+            .attr("transform", `translate(${root.dy / 3},${root.dx - x0})`);
 
-    const link = g.append("g")
-        .attr("fill", "none")
-        .attr("stroke", "#555")
-        .attr("stroke-opacity", 0.4)
-        .attr("stroke-width", 1.5)
-        .selectAll("path")
-        .data(root.links())
-        .enter().append("path")
-        .attr("d", d3.linkHorizontal()
-            .x(d => d.y)
-            .y(d => d.x));
+        const link = g.append("g")
+            .attr("fill", "none")
+            .attr("stroke", "#555")
+            .attr("stroke-opacity", 0.4)
+            .attr("stroke-width", 1.5)
+            .selectAll("path")
+            .data(root.links())
+            .enter().append("path")
+            .attr("d", d3.linkHorizontal()
+                .x(d => d.y)
+                .y(d => d.x));
 
-    const node = g.append("g")
-        .attr("stroke-linejoin", "round")
-        .attr("stroke-width", 3)
-        .selectAll("g")
-        .data(root.descendants().reverse())
-        .enter().append("g")
-        .attr("transform", d => `translate(${d.y},${d.x})`);
+        const node = g.append("g")
+            .attr("stroke-linejoin", "round")
+            .attr("stroke-width", 3)
+            .selectAll("g")
+            .data(root.descendants().reverse())
+            .enter().append("g")
+            .attr("transform", d => `translate(${d.y},${d.x})`);
 
-    node.append("circle")
-        .attr("fill", d => d.children ? "#555" : "#999")
-        .attr("r", 2.5);
+        node.append("circle")
+            .attr("fill", d => d.children ? "#555" : "#999")
+            .attr("r", 2.5);
 
-    const txt = node.append("text")
-        .attr("dy", "0.31em")
-        .attr("x", d => d.children ? -6 : 6)
-        .attr("text-anchor", d => d.children ? "end" : "start")
-        .text(d => d.data.name)
+        const txt = node.append("text")
+            .attr("dy", "0.31em")
+            .attr("x", d => d.children ? -6 : 6)
+            .attr("text-anchor", d => d.children ? "end" : "start")
+            .text(d => d.data.name)
 
-    txt.append("tspan")
-        .text(d => d.data.url)
-        .attr("dx", 5)
-        .attr("fill", "blue")
+        txt.append("tspan")
+            .text(d => d.data.url)
+            .attr("dx", 5)
+            .attr("fill", "blue")
 
-    txt.clone(true).lower()
-        .attr("stroke", "white")
+        txt.clone(true).lower()
+            .attr("stroke", "white")
 
-    svg.node();
-</script>
+        svg.node();
+    </script>
 </body>
+
 </html>
